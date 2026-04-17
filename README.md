@@ -1,7 +1,7 @@
 # Jupyter Notebook for OOD Deployment on UoL General Compute
 
 This app has been derived from the app shared by FAS-RC, which was derived from the template provided by the OSC OpenOnDemand Team, and has been modified for UoL use.<br>
-[RAS-RC](https://github.com/fasrc/ood-jupyter-app)<br>
+[FAS-RC](https://github.com/fasrc/ood-jupyter-app)<br>
 [OSC](https://github.com/OSC/bc_example_jupyter)
 
 It launches a JupyterLab or Notebook server within a batch job.
