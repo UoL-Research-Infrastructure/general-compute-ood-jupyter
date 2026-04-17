@@ -1,0 +1,79 @@
+---
+title: "Jupyter notebook / Jupyterlab"
+cluster: "odyssey3"
+attributes:
+  bc_email_on_started: ''
+  bc_num_hours:
+    value: 1
+  jupyterlab_switch:
+    widget: "check_box"
+    value: 1
+    label: "Use JupyterLab instead of Jupyter Notebook?"
+    cacheable: false
+    help: |
+      [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is the next generation of Jupyter, and is completely compatible with existing [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/stable/).
+  custom_memory_per_node:
+    label: Memory Allocation in GB
+    value: 2
+    min:   1
+    step:  1
+    widget: number_field
+    help: |
+      Memory required per node (--mem)
+  custom_num_cores:
+    label: Number of cores per task
+    value: 1
+    min:   1
+    step:  1
+    widget: number_field
+    help: |
+      Number of CPUs to allocate (--cpus-per-task)
+  custom_num_gpus:
+    label: Number of GPUs
+    value: 0
+    min:   0
+    step:  1
+    max:   8
+    widget: number_field
+    help: |
+      Number of GPUs to allocate. Available only on GPU enabled partitions. (--gres=gpu:N)
+  envscript:
+    label: Full path of script to be executed before launching jupyter (Optional)
+    cacheable: false
+    widget: text_field
+    help: |
+      You can run custom scripts before starting jupyter.<br>We recommend **not** to load any python/anaconda module or conda activate command in this script.<br>
+      
+      If you need additional modules you can:
+        <li> add the corresponding **module load** statements in this script, or </li>
+        <li> add the list of modules you want to load in the section **extra modules** in this form, or </li>
+      
+  modules:
+    label: Extra Modules
+    widget: text_field
+    cacheable: false
+    help: |
+      Comma separated list of modules you would like to load before starting jupyter.
+      
+      Please make sure the modules selected can be loaded correctly in the order you listed.
+   
+      We recommend **not** to load any python/anaconda module as that would interfere with the jupyter installation.
+
+  working_folder:
+    label: "Working Directory (Optional)"
+    widget: text_field
+    value: '<%= OodSupport::User.new.home %>'
+    cacheable: false
+    help: |
+      Path to a directory to launch Jupyter server in. Blank will use your home directory. **Entering a non-existent directory will cause the job to fail**
+
+form:
+  - jupyterlab_switch
+  - bc_num_hours
+  - custom_memory_per_node
+  - custom_num_cores
+  - custom_num_gpus
+  - working_folder
+  - envscript
+  - modules
+  - bc_email_on_started
