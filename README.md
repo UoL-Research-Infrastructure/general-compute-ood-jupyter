@@ -19,5 +19,5 @@ nb_conda_kernels will use the conda executable directly to search for additional
 
 ## Install
 
-This repo is deployed by Ansible to /var/www/ood/apps/sys/ on the ondemand nodes.
+This repo is deployed by Ansible to /var/www/ood/apps/sys/ on the ondemand node.
 
