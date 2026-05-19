@@ -31,5 +31,5 @@ module list
 # Benchmark info
 echo "TIMING - Starting jupyter at: $(date)"
 # Launch the Jupyter  Server
-jupyter <%= context.jupyterlab_switch == "1" ? "lab" : "notebook" %> --ResourceUseDisplay.mem_limit=<%= context.custom_memory_per_node.to_i * 1024 * 1024 * 1024%> --config="${CONFIG_FILE}"
+jupyter <%= context.jupyterlab_switch == "1" ? "lab" : "notebook" %> --ResourceUseDisplay.mem_limit=<%= context.custom_memory.to_i * 1024 * 1024 * 1024%> --config="${CONFIG_FILE}"
 END
